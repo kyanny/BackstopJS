@@ -1,7 +1,11 @@
 
 var fs = require('fs');
 
-
+var cookiesJSON = fs.read('cookies.json');
+var cookies = JSON.parse(cookiesJSON);
+for (var i = 0; i < cookies.length; i++) {
+  phantom.addCookie(cookies[i]);
+}
 
 var bitmaps_reference = 'bitmaps_reference';
 var bitmaps_test = 'bitmaps_test';
